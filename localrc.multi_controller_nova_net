@@ -1,0 +1,58 @@
+##########################
+# DATE   2014.10.16      #
+# BRANCH stable/icehouse #
+##########################
+
+# controller with key/glance/horizon/nova/cinder
+# this localrc for controller
+
+# base localrc
+HOST_IP=w.x.y.z
+MULTI_HOST=True
+
+# network setting
+FLAT_INTERFACE=eth0
+FIXED_RANGE=10.0.10.0/24
+FIXED_NETWORK_RANGE=256
+FLOATING_RANGE=w.x.y.z/24
+
+# password
+DATABASE_PASSWORD=nosecret
+RABBIT_PASSWORD=nosecret
+SERVICE_TOKEN=nosecret
+SERVICE_PASSWORD=nosecret
+ADMIN_PASSWORD=nosecret
+MYSQL_PASSWORD=nosecret
+
+
+# enabled service
+# pre-requisite
+ENABLED_SERVICES=rabbit,mysql,key
+# Horizon
+ENABLED_SERVICES+=,horizon
+# glance 
+ENABLED_SERVICES+=,g-api,g-reg
+# nova
+ENABLED_SERVICES+=,n-api,n-crt,n-obj,n-cpu,n-net,n-cond,n-sch,n-novnc,n-xvnc,n-cauth
+# cinder
+ENABLED_SERVICES+=,c-sch,c-api,c-vol
+# Nova-network
+ENABLED_SERVICES+=,n-net
+
+# devstack destination
+DEST=/opt/stack
+
+# log setting
+LOGFILE=$DEST/logs/stack.sh.log
+SCREEN_LOGDIR=$DEST/logs/screen
+SYSLOG=True
+SYSLOG_HOST=$HOST_IP
+SYSLOG_PORT=516
+
+# vnc
+VNCSERVER_LISTEN=0.0.0.0
+VNCSERVER_PROXYCLIENT_ADDRESS=$HOST_IP
+
+# cinder
+VOLUME_GROUP="cinder-volume"
+VOLUME_NAME_PREFIX="volume-"
