@@ -35,8 +35,9 @@ KEYSTONE_AUTH_HOST=$SERVICE_HOST
 KEYSTONE_SERVICE_HOST=$SERVICE_HOST
 
 # enabled service
+ENABLED_SERVICES=rabbit
 # nova
-ENABLED_SERVICES=n-cpu,n-api,n-novnc
+ENABLED_SERVICES+=,n-cpu,n-api,n-novnc
 # cinder
 ENABLED_SERVICES+=,c-sch,c-api,c-vol
 # Nova-network
