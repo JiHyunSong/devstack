@@ -12,6 +12,7 @@ MULTI_HOST=True
 
 # Controller's IP
 SERVICE_HOST=w.x.y.z
+MYSQL_HOST=w.x.y.z
 
 # network setting
 FLAT_INTERFACE=eth0
@@ -36,11 +37,13 @@ KEYSTONE_SERVICE_HOST=$SERVICE_HOST
 
 # enabled service
 # nova
-ENABLED_SERVICES=n-cpu,n-api,n-novnc
+ENABLED_SERVICES=n-cpu,n-api
 # cinder
 ENABLED_SERVICES+=,c-sch,c-api,c-vol
 # Nova-network
 ENABLED_SERVICES+=,n-net
+# basic service
+ENABLED_SERVICES+=,mysql,rabbit
 
 # devstack destination
 DEST=/opt/stack
