@@ -43,7 +43,7 @@ ENABLED_SERVICES+=,c-sch,c-api,c-vol
 # Nova-network
 ENABLED_SERVICES+=,n-net
 # basic service
-ENABLED_SERVICES+=,mysql,rabbit
+ENABLED_SERVICES+=,rabbit
 
 # devstack destination
 DEST=/opt/stack
