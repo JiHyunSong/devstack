@@ -36,13 +36,7 @@ KEYSTONE_AUTH_HOST=$SERVICE_HOST
 KEYSTONE_SERVICE_HOST=$SERVICE_HOST
 
 # enabled service
-# nova
-ENABLED_SERVICES=n-cpu,n-api
-# cinder
-ENABLED_SERVICES+=,c-sch,c-api,c-vol
-# Nova-network
-ENABLED_SERVICES+=,n-net
-# basic service
+ENABLED_SERVICES=n-cpu,n-net,n-api,c-sch,c-api,c-vol,n-novnc
 ENABLED_SERVICES+=,rabbit
 
 # devstack destination
