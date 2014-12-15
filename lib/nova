@@ -517,6 +517,11 @@ function create_nova_conf {
         iniset $NOVA_CONF DEFAULT notification_driver "messaging"
     fi
 
+    if [ "$CORE_FILTER" == "True" ]; then
+        iniset $NOVA_CONF DEFAULT cpu_allocation_ratio 1.0
+        iniset $NOVA_CONF DEFAULT scheduler_default_filters RetryFilter,AvailabilityZoneFilter,RamFilter,ComputeFilter,ComputeCapabilitiesFilter,ImagePropertiesFilter,CoreFilter
+    fi
+
     # Provide some transition from ``EXTRA_FLAGS`` to ``EXTRA_OPTS``
     if [[ -z "$EXTRA_OPTS" && -n "$EXTRA_FLAGS" ]]; then
         EXTRA_OPTS=$EXTRA_FLAGS
